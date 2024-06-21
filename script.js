@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", function() {
             // Display the clicked question table
             if (targetTable) {
                 targetTable.style.display = 'block';
+                // Scroll to the question table
+                targetTable.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
