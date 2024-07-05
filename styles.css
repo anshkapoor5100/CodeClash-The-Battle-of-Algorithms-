@@ -8,9 +8,16 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    background-color: #f9f9f9;
-}
+    /* background-color: #f9f9f9; */
 
+
+background: rgb(117,98,98);
+background: linear-gradient(90deg, rgba(117,98,98,1) 0%, rgba(89,72,91,1) 27%, rgba(112,83,113,1) 73%, rgba(0,0,0,1) 100%);
+}
+a{
+    color: white;
+    font-weight: bolder;
+}
 .container {
     max-width: 960px;
     margin: 0 auto;
@@ -19,6 +26,9 @@ body {
 
 header {
     background-color: #333;
+    background: rgb(81,72,244);
+    background: linear-gradient(90deg, rgb(29, 29, 30) 0%, rgb(59, 59, 80) 35%, rgba(79,110,241,1) 100%);
+    
     color: #fff;
     padding: 15px 0;
 }
@@ -38,7 +48,7 @@ section {
 
 h2 {
     font-size: 1.8em;
-    color: #333;
+    color: white;
     margin-bottom: 20px;
     border-bottom: 2px solid #ddd;
     padding-bottom: 10px;
@@ -52,22 +62,56 @@ h2 {
 .lecture-item {
     width: 50%;
     padding: 10px;
+    position: relative;
 }
 
 .toggle-questions {
     display: block;
-    padding: 15px;
-    background-color: #007bff;
-    color: #fff;
+    padding: 60px 20px; /* Increase padding to better fit background images */
+    background-size: cover;
+    background-position: center;
+    /* padding: 25% 0; */
+    color: transparent;
+    font-weight: bold;
     text-decoration: none;
+    font-size: x-large;
     text-align: center;
     border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.lecture-item a{
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggle-questions::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(0, 0, 0, 0.5); */
     transition: background-color 0.3s ease;
+    z-index: 1;
 }
 
 .toggle-questions:hover {
-    background-color: #0056b3;
+    transform: scale(1.05);
     cursor: pointer;
+}
+
+.toggle-questions:hover::before {
+    background-color: rgba(0, 0, 0, 0.7); /* Darker shadow/tint on hover */
+}
+
+.toggle-questions span {
+    position: relative;
+    z-index: 2;
 }
 
 .question-table {
@@ -93,14 +137,17 @@ h2 {
 
 footer {
     background-color: #333;
+    background: rgb(81,72,244);
+    background: linear-gradient(90deg, rgb(29, 29, 30) 0%, rgb(59, 59, 80) 35%, rgba(79,110,241,1) 100%);
     color: #fff;
     padding: 15px 0;
     text-align: center;
     position: fixed;
     bottom: 0;
+    font-weight: bolder;
     width: 100%;
+    z-index: 10; /* Ensure footer is above buttons */
 }
-
 
 @media (max-width:600px){
     .lecture-item {
@@ -115,4 +162,48 @@ footer {
         text-align: center;
         font-size: 1.5em;
     }
+    .toggle-questions {
+        background-size: contain;
+        background-position: center;
 }
+}
+/* Example background images for different lectures */
+.lecture-item:nth-child(1) .toggle-questions {
+    background-image: url('https://media.geeksforgeeks.org/wp-content/uploads/20220602151616/5StepstolearnDSA.jpg');
+}
+
+.lecture-item:nth-child(2) .toggle-questions {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl4d-kD1YMIeTvV3vZiQu343sBK4yWJ08aNg&s');
+}
+
+.lecture-item:nth-child(3) .toggle-questions {
+    background-image: url('https://www.freecodecamp.org/news/content/images/2023/03/binary-search-algorithm.png');
+}
+.lecture-item:nth-child(4) .toggle-questions {
+    background-image: url('https://blog.codehunger.in/wp-content/uploads/2021/03/c-plus-plus-string.jpg');
+}
+.lecture-item:nth-child(5) .toggle-questions {
+    background-image: url('https://www.scaler.com/topics/images/recursion-backtracking_Thumbnail.webp');
+}
+.lecture-item:nth-child(6) .toggle-questions {
+    background-image: url('https://media.geeksforgeeks.org/wp-content/uploads/20240410135517/linked-list.webp');
+}
+.lecture-item:nth-child(7) .toggle-questions {
+    background-image: url('https://media.geeksforgeeks.org/wp-content/uploads/20240503093046/Introduction-to-Binary-Tree.webp');
+}
+.lecture-item:nth-child(8) .toggle-questions {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy9yEmxqG_dCl9OyqTRkrXaP-5rcrfYDAPsQ&s');
+}
+.lecture-item:nth-child(9) .toggle-questions {
+    background-image: url('https://i.ytimg.com/vi/Gt2yBZAhsGM/maxresdefault.jpg');
+}
+.lecture-item:nth-child(10) .toggle-questions {
+    background-image: url('https://media.geeksforgeeks.org/wp-content/cdn-uploads/20221220165711/MinHeapAndMaxHeap1.png');
+}
+.lecture-item:nth-child(11) .toggle-questions {
+    background-image: url('https://media.geeksforgeeks.org/wp-content/uploads/20200630111809/graph18.jpg');
+}
+
+/* Add more background images for other lecture items */
+
+
